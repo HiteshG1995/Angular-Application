@@ -1,0 +1,10 @@
+input,select{
+    background-color: gainsboro;
+}
+.form-group{
+    margin: 5px;
+}
+.form-check-input{
+    margin-left: 5px;
+    margin-right: 2px;
+}

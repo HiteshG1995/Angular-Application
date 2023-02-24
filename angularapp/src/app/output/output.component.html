@@ -1,0 +1,24 @@
+<div class="container">
+<br>
+<h2>Child - Parent relation</h2>
+<h4>To pass variable click below</h4>
+<button class="btn btn-primary" (click)="sendToParent()">Button 1 from output component</button>
+<div *ngIf = "!showDetails">
+<h3>{{passData}}</h3>
+</div>
+<br>
+<br>
+<h4>To pass object click below</h4>
+<button class="btn btn-primary" (click)="sendObjtoPar()">Button 2 from output component</button>
+<br>
+<br>
+<div *ngIf = "showDetails">
+    <h5 (display)="sendToParent()"> The employee Name is : {{passData2.Name}}</h5>
+    <h5 (display)="sendToParent()"> The employee Age is : {{passData2.age}}</h5>
+    <h5 (display)="sendToParent()"> The employee Address is : {{passData2.address}}</h5>
+    <h5 (display)="sendToParent()"> The employee Pincode is : {{passData2.pincode}}</h5>
+</div>
+</div>
+
+
+ 

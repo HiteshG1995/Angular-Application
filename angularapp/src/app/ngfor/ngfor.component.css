@@ -1,0 +1,19 @@
+.even{
+    background-color: aquamarine;
+}
+.odd{
+    background-color: aqua;
+}
+
+ #box{
+    width: 300px;
+    border: 1px solid;
+    padding: 30px;
+    box-shadow: 5px 10px 18px #161414;
+ }
+
+ #shadowBtn{
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 10px 18px #057c5c;
+ }

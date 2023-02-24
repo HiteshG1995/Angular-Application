@@ -1,0 +1,118 @@
+<br>
+<br>
+<div [ngStyle]="{'background-image':bgColor()}">
+    <div class="container" [ngStyle]="{'background-image':bgColor()}">
+        <div class="row justify-content-center">
+            <div class="col-md-7 text left rounded shadow py-3" id="shadowBG" [ngStyle]="{'background-image':formColor()}" >
+                
+                <div class="text-center" id="topLabel" [ngStyle]="{'background-image':formColor()}">
+
+                    <h2><i>Registration Form</i></h2>
+                </div>
+                
+                <form [formGroup]="myRegestration" [ngStyle]="{'background-image':formColor()}" (ngSubmit)="onSubmit(buttonType)">
+                    <div class="form-group">
+                        <label id="lable"><b>Full name</b></label>
+                        
+                        <mat-form-field appearance="outline" class="firstname" type="text">
+                        <mat-label>First Name</mat-label>
+                        <input matInput placeholder="Enter First Name" formControlName="Firstname">
+                        <small class="text-danger" *ngIf="myRegestration.get('Firstname').errors?.minlength">First name atleast 5 characters.</small>  
+                        <small class="text-danger" *ngIf="myRegestration.get('Firstname').touched && !myRegestration.get('Firstname').dirty">Please enter your name.</small>  
+                        <small class="text-danger" *ngIf="myRegestration.get('Firstname').errors?.maxlength">First name should be maximum 15 characters.</small>  
+                        <!-- <small class="text-danger" *ngIf="firstName.errors?.minlength">Firstname must be at least 5 characters long.</small>
+                        <small class="text-danger" *ngIf="firstName.errors?.maxlength">First name max length should be 15 characters.</small> -->
+                        </mat-form-field>
+                        
+                        <mat-form-field appearance="outline" class="lastname" type="text">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput placeholder="Enter Last Name" formControlName="Lastname">
+                        <small class="text-danger" *ngIf="myRegestration.get('Lastname').errors?.maxlength">Last name atleast 10 characters.</small>  
+                        <small class="text-danger" *ngIf="myRegestration.get('Lastname').touched && !myRegestration.get('Firstname').dirty">Please enter your last name.</small>  
+                        </mat-form-field>
+                    </div>
+
+                    <div class="form-group">
+                        <label id="lable"><b>Contact Details</b></label>
+
+                        <mat-form-field appearance="outline" class="email" type="email">
+                        <mat-label>Email address</mat-label>
+                        <input matInput placeholder="yourname@domain.com" formControlName="email" >
+                        <small class="text-danger" *ngIf="!myRegestration.get('email').valid && myRegestration.get('email').touched">Please enter valid email</small>           
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="phone">
+                        <mat-label>Phone number</mat-label>
+                        <input type="tel" matInput placeholder="Enter Contact Number" formControlName="Phone">
+                        <small class="text-danger" *ngIf="myRegestration.get('Phone').touched && myRegestration.get('Phone').pristine">Please enter phone number</small>
+                        <small class="text-danger" *ngIf="!myRegestration.get('Phone').valid && myRegestration.get('Phone').dirty">Phone number should be atleast 10 digit</small>           
+                        </mat-form-field>
+                    </div>
+                    
+                    <div class="form-group">
+                        <section class="example-section">
+                        <label id="genlable"><b>Gender:</b></label>
+                        <mat-radio-group formControlName="Gender">
+                        <mat-radio-button class="example-margin" value="Male" id="radiobtn1">Male</mat-radio-button>
+                        <mat-radio-button class="example-margin" value="Female" id="radiobtn">Female</mat-radio-button>
+                        </mat-radio-group>
+
+                        <label id="ageLabel"><b>Age:</b></label>
+                        <mat-form-field appearance="outline" class="age" >
+                        <mat-label>Your Age</mat-label>
+                        <input matInput placeholder="Enter your age" type="number" formControlName="Age">
+                        <small class="text-danger" *ngIf="myRegestration.get('Age').touched && !myRegestration.get('Age').dirty">Please enter age</small>
+                        <small class="text-danger" *ngIf="!myRegestration.get('Age').valid && myRegestration.get('Age').dirty">Age must be in between 17 to 20</small>           
+                        </mat-form-field>
+                        </section>
+                    </div>
+                    <div>
+                        <label class="example-margin" id="citylable"><b>Choose City</b></label>
+
+                        <mat-form-field appearance="outline">
+                            <mat-label>Select</mat-label>
+                            <mat-select name="city" formControlName="City">
+                            <mat-option *ngFor="let city of cities" value={{city}} >{{city}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group" >
+                        <label id="lable"><b>Set Password</b></label>
+
+                            <mat-form-field appearance="fill">
+                            <mat-label>Enter your password</mat-label>
+                            <input type="button" matInput [type]="hide ? 'password' : 'text'" formControlName="Password" #pw>
+                            <small class="text-danger" *ngIf="myRegestration.get('Password').touched && !myRegestration.get('Password').dirty">Please enter password</small>
+                            <small class="text-danger" *ngIf="myRegestration.get('Password').errors?.minlength && myRegestration.get('Password').errors?.pattern">Password must contain at least one number, one uppercase and a lowercase letter 
+                            and at least 8 characters</small>  
+                            <small class="text-danger" *ngIf="myRegestration.get('Password').errors?.pattern && !myRegestration.get('Password').errors?.minlength">Password must contain at least one number, one uppercase and a lowercase letter</small>
+                            <small class="text-danger" *ngIf="myRegestration.get('Password').errors?.maxlength">Maximum 15 characters allowed.</small>  
+                            <!-- <small class="text-danger" *ngIf="myRegestration.get('Password').errors?.pattern">Combination should be like P@55w0rd.</small>   -->
+                            <!-- <small class="text-danger" *ngIf="">Maximum length should be 15.</small>   -->
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                            </mat-form-field>
+                        
+                            <mat-form-field appearance="fill" class="Confirmedpassword">
+                            <mat-label>confirmed password</mat-label>
+                            <input type = "button" matInput [type]="hide ? 'password' : 'text'" formControlName="Confirm_password" #cpw (keyup)='checkPasswords(pw.value, cpw.value)'>
+                            <small class="text-danger" *ngIf="myRegestration.get('Confirm_password').touched && !myRegestration.get('Confirm_password').dirty">Please enter confirm password</small>
+                            <small class="text-danger" *ngIf="myRegestration.get('Confirm_password').errors?.mustMatch">Confirm password did not match</small>
+                            <small *ngIf='!passwordsMatching && isConfirmPasswordDirty' class="text-danger">Password did not match</small>
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                            </mat-form-field>
+
+
+                       </div>
+                    <div class="form-group">
+                            <button type="submit" class="btn btn-info" id="submitbtn" (click)="onSubmit('submit')">Submit</button >
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

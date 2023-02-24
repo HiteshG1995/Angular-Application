@@ -1,0 +1,177 @@
+<div class="container-fluid mb-5">
+  <div class="row justify-content-center">
+    <div class="col-md-4 text-left rounded shadow py-5">
+      <h3>Template Registraion form</h3>
+      <form #userform="ngForm">
+        <div class="form-group">
+          <label for="">First Name</label>
+          <input
+            type="text"
+            required
+            #fName="ngModel"
+            name="fName"
+            [class.is-invalid]="fName.invalid && fName.touched"
+            class="form-control"
+            [(ngModel)]="user.firstName"
+          />
+          <small
+            class="text-danger"
+            [class.d-none]="fName.valid || fName.untouched"
+            >First Name is required</small
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="">Last Name</label>
+          <input
+            type="text"
+            #lName="ngModel"
+            name="lName"
+            required
+            class="form-control"
+            [(ngModel)]="user.lastName"
+          />
+            <small class="text-danger" *ngIf="lName.invalid && lName.touched"
+              >Last Name is required</small>
+         
+        </div>
+
+        <div class="form-group">
+          <label for="">Age</label>
+          <input
+            type="number"
+            #age="ngModel"
+            name="age"
+            required
+            (blur)="validAge(age.value)"
+            [class.is-invalid]="age.invalid && age.touched && userAge"
+            class="form-control"
+            [(ngModel)]="user.age"
+          />
+          <small
+            class="text-danger"
+            [class.d-none]="userAge && (age.valid || age.untouched)"
+            >Age must be between 17 to 20</small
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="">Email</label>
+          <input
+            type="email"
+            required
+            #email="ngModel"
+            name="email"
+            class="form-control"
+            [(ngModel)]="user.email"
+            (keyup)="checkEmail(email.value)"
+          />
+          <div>
+            <small class="text-danger" *ngIf="isEmailValid">Enter valid email </small>
+          <small class="text-danger" *ngIf="email.invalid && email.touched">Email is required</small>
+        </div>
+      </div>
+
+        <div class="form-group">
+          <label for="">Phone</label>
+          <input
+            type="tel"
+            #phone="ngModel"
+            required
+            pattern="^\d{10}$"
+            [class.is-invalid]="phone.invalid && phone.touched"
+            name="phone"
+            class="form-control"
+            [(ngModel)]="user.phone"
+          />
+
+          <small
+            class="text-danger"
+            [class.d-none]="phone.valid || phone.untouched"
+            >Phone number required and must have 10 digit</small
+          >
+        </div>
+
+        <div class="form-group">
+          <select
+            class="form-select"
+            required
+            #city="ngModel"
+            [class.is-invalid]="city.invalid && city.touched"
+            name="city"
+            [(ngModel)]="user.city"
+          >
+            <option value="">Select city</option>
+            <option *ngFor="let city of cities">{{ city }}</option>
+          </select>
+          <small
+            class="text-danger"
+            [class.d-none]="city.valid || city.untouched"
+            >Choose city name</small
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="">Gender</label>
+          <input
+            type="radio"
+            class="form-check-input"
+            name="genderpreference"
+            value="male"
+            [(ngModel)]="user.gender"
+          />
+          <label class="form-check-label">Male</label>
+          <input
+            type="radio"
+            class="form-check-input"
+            name="genderpreference"
+            value="female"
+            [(ngModel)]="user.gender"
+          />
+          <label class="form-check-label">Female</label>
+        </div>
+
+        <div class="form-group">
+          <label for="">Password</label>
+          <input
+            type="password"
+            name="password"
+            class="form-control"
+            [(ngModel)]="user.password"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="">Conﬁrm Password</label>
+          <input
+            type="password"
+            name="cpassword"
+            required
+            #cpassword="ngModel"
+            [class.is-invalid]="
+              cpassword.invalid && cpassword.touched && password
+            "
+            class="form-control"
+            [(ngModel)]="user.cpassword"
+            (keyup)="checkPasswords(user.password, user.cpassword)"
+          />
+          <small
+            class="text-danger"
+            [class.d-none]="
+              password && (cpassword.valid || cpassword.untouched)
+            "
+            >Password not match</small
+          >
+        </div>
+
+        <button [disabled] = userform.form.invalid
+          (click)="submitForm(userform)"
+          class="btn btn-primary"
+          type="submit"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

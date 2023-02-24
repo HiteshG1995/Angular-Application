@@ -1,0 +1,80 @@
+<br>
+<br>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-3 text left rounded shadow py-3" [ngStyle]="{'background-color':bgColor}">
+            <div class="text-center">
+                <h3><i>Regester Here</i></h3>   
+            </div>
+                <!-- <div class="FormGroup"> -->
+                    <!-- <div formGroupName="formDetails"> -->
+                    <form [formGroup]="reactiveFormAssign" (ngSubmit)="submitForm('btnSub')">
+
+                        <h6>Email</h6>
+                        <input type="email" class="form-control" formControlName="mailAddress" placeholder="yourname@domain.com" required>
+                        <small class="text-danger" id="marginbtm" *ngIf="reactiveFormAssign.get('mailAddress').touched && !reactiveFormAssign.get('mailAddress').dirty">Please enter email</small>
+
+                        <div id="topmargin">
+                            <h6>Select course level</h6>
+                            <select class="btn btn-outline-secondary dropdown-toggle"  name="dropDown" formControlName="dropDown" >
+                                    <option *ngFor="let subscription of subscriptions" value="{{subscription}}" >{{subscription}}</option>
+                            </select>   
+                        </div> 
+
+                        <div id="topmargin">
+                            <h6>Enter Password</h6>       
+                            <input type="password" formControlName="password" class="form-control"  placeholder="Password">
+                            <small class="text-danger" *ngIf="reactiveFormAssign.get('password').touched && !reactiveFormAssign.get('password').dirty">Please enter password</small>
+                        </div> 
+
+                        <div id="topmargin">
+                            <h6>Select date</h6>       
+                            <input type="date" formControlName="date" class="form-control" min="{{minDate}}" >
+                            <small class="text-danger" id="marginbtm" *ngIf="reactiveFormAssign.get('date').touched && !reactiveFormAssign.get('date').dirty">Please enter date</small>
+                        </div>
+
+                        <div id="topmargin">
+                        <button type="submit" formControlName="submit" id="marginbtm" class="btn btn-outline-primary" id="submit" (click)="submitForm('submit')">Submit</button>
+                        </div>
+                    </form>
+                <!-- </div> -->
+            <!-- </div> -->
+        </div>
+    </div>
+</div>
+
+<!-- <mat-form-field>
+    <input placeholder="Select Date"  formControlName="date" matInput [matDatepicker]="myDatePicker" [min]="minDate" [max]="maxDate">
+    <mat-datepicker-toggle [for]="myDatePicker" matSuffix>
+    </mat-datepicker-toggle>
+    <mat-datepicker #myDatePicker></mat-datepicker>
+</mat-form-field> -->
+
+<div class="row justify-content-center mt2" *ngIf="isSubmited">
+    <div class="col-md-6 rounded shadow py-4">
+      <h2>Form Data</h2>
+      <p>Email: <strong>{{reactiveFormAssign.value.mailAddress}}</strong></p>
+      <p>Dropdown Selected: <strong>{{reactiveFormAssign.value.dropDown}}</strong></p>
+      <p>password: <strong>{{reactiveFormAssign.value.password}}</strong></p>
+      <p>date: <strong>{{reactiveFormAssign.value.date}}</strong></p>
+    </div>
+</div> 
+
+<!-- <div class="container">
+    <div class="row justify-content-right">
+        <div class="col-md-3 text left rounded shadow py-3">
+            <div class="text-center">
+                <h3><i>Regester Here</i></h3>
+            </div>
+            <form>
+                <input type="email" class="form-control" id="staticEmail" placeholder="yourname@domain.com">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown button
+                </button>           
+                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                <input type="date" class="form-control" id="data-toggle" >
+                <button type="submit" class="btn btn-outline-primary" id="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div> -->

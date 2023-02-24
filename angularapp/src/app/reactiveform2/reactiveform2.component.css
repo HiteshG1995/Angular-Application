@@ -1,0 +1,23 @@
+#marginbtm{
+    margin-bottom: 20px;
+    /* background-color:lightgray */
+}
+
+#topmargin{
+    margin-top: 20px;
+}
+
+#data-toggle{
+    /* margin-top: 20px; */
+    margin-bottom: 20px;
+    /* background-color: bisque; */
+}
+
+#inputPassword{
+    margin-bottom: 20px;
+}
+
+
+#submit{
+    margin-left: 100px;
+}

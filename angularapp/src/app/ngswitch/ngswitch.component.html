@@ -1,0 +1,38 @@
+<div>
+    <div>
+        <ng-container class="card" style="width: 18rem;" *ngFor="let course of courses">
+          <div *ngIf = "course.id">
+            <img class="card-img-top" [src]="course.iconURL" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{course.desc}}</h5>
+              <div [ngSwitch]="course.category">
+                    <div class="btn btn-info" *ngSwitchCase="'INTERMEDIATE'">Intermediate</div>
+                    <div class="btn btn-primary" *ngSwitchCase="'BEGINNER'">Beginner</div>
+                    <div class="btn btn-secondary" *ngSwitchCase="'ADVANCED'">Advanced</div>
+                    <div class="btn btn-secondary" *ngSwitchDefault>All level</div>
+                  </div>
+              </div>
+            </div>
+          </ng-container>
+    </div>
+</div>
+
+<!-- <div class="container">
+  <div class="col-md-4">
+    <select class="form-control" (change)="getProductValue($event)"> 
+      <option value="Default">Select Product</option>
+      <option value="Laptop">Laptop</option>
+      <option value="Mobile">Mobile</option>
+      <option value="TV">TV</option>
+      <option value="Washing Machine">Washing Machine</option>
+
+    </select>
+  </div>
+  <div class="col-md-12" [ngSwitch]="selectedProduct">
+    <h2 class="text-success" *ngSwitchCase="'Laptop'"> Laptop</h2>
+    <h2 class="text-success" *ngSwitchCase="'Mobile'"> Mobile</h2>
+    <h2 class="text-success" *ngSwitchCase="'TV'"> TV</h2>
+    <h2 class="text-success" *ngSwitchCase="'Washing Machine'"> Washing Machine</h2>
+
+  </div>
+</div> -->

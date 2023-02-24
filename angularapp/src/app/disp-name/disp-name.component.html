@@ -1,0 +1,12 @@
+<p>disp-name works!</p>
+<div class="container">
+    <div>
+        <input  type="text"  [(ngModel)]="displayTxt">
+    </div>
+    <br>
+    <br>
+    <button (click)="onButtonClickDisp()"> Display text on browser </button>
+    <br>
+    <br>
+    <span style="color: blueviolet;">Display text: </span> <span *ngIf = "showTxt">{{displayTxt}}</span>
+</div>

@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-3">
+            <button class="btn btn-primary" (click)="onDisplayDetailsClick()">Display Details</button>
+        </div>
+        <div class="col-xs-9">
+            <div *ngIf="toggleDetails" id="shadowRes">'Secret Password = tuna' & you can use it if you love fish.</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div *ngFor="let click of logClicks; let i = index">
+                <div id="clickEve" [ngStyle]="{backgroundColor: getBackgroundColor(i)}" [ngClass]="{'white-font': click.count > 4}">
+                    clicked at {{click.count}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

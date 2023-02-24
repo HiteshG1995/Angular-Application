@@ -1,0 +1,12 @@
+button{
+
+    background-color: chocolate;
+    border-radius: 10px;
+    height: 25px;
+    width: 80px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+}
+
+.bgcolor{
+    background-color: blueviolet;
+}
