@@ -49,6 +49,7 @@ import { ReactiveformComponent } from './reactiveform/reactiveform.component';
 import { RegestrationFormComponent } from './regestration-form/regestration-form.component';
 import { TemplateformAssignmentComponent } from './templateform-assignment/templateform-assignment.component';
 import { Reactiveform2Component } from './reactiveform2/reactiveform2.component';
+import { FormsComponent } from './forms/forms.component';
 
 
 @NgModule({
@@ -73,7 +74,8 @@ import { Reactiveform2Component } from './reactiveform2/reactiveform2.component'
     ReactiveformComponent,
     RegestrationFormComponent,
     TemplateformAssignmentComponent,
-    Reactiveform2Component
+    Reactiveform2Component,
+    FormsComponent
   ],
   imports: [
     BrowserModule,
