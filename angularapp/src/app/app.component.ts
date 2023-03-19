@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MyserviceService } from './services/myservice.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   
-  
+  products = {};
   parentToChild: String = 'I am coming from parent'
   posts = [
     {
@@ -28,8 +29,11 @@ export class AppComponent {
   }
   imageUrl = 'https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg';
 
-  constructor(){
+  constructor(private myService: MyserviceService){
     this.getServerData()
+  }
+  ngOnInit(): void {
+    this.products = this.myService.products;
   }
   getServerData(){
     this.empCount = 100000

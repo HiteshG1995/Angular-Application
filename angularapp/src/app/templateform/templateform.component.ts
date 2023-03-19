@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { MyserviceService } from '../services/myservice.service';
 
 @Component({
   selector: 'app-templateform',
@@ -27,13 +29,19 @@ export class TemplateformComponent implements OnInit {
       id: '2', value: 'Female'
     }
   ]
+  age;
+  showAge;
+  showDetails: number;
   // emails='';
-  constructor() { }
+  constructor(private Objservice: MyserviceService, private route: Router) { }
 
   ngOnInit() {
+    //  let Objmyprint = new MyserviceService();
+     this.Objservice.print();                
   }
 
   login(form: NgForm) {
+    this.route.navigate(['/userdetails']);
     this.isSubmitted = true;
     console.log(form);
 
@@ -48,6 +56,9 @@ form.controls['gender'].patchValue('Male');
 
 // POST api/ Saveuser(formData);
 
+// let Objmydisp = new MyserviceService();
+this.Objservice.display();
+
   }
   checkMail(email){
     console.log(email.value);
@@ -60,7 +71,19 @@ form.controls['gender'].patchValue('Male');
     } else {
       this.isEmailValid = true;
     }
+    
   }
+  // ageCalculator()
+  // {
+  //   if (this.age){
+  //     const convertAge = new Date(this.age);
+  //     const timeDiff = Math.abs(Date.now() - convertAge.getTime());
+  //     this.showAge = Math.floor(timeDiff / (1000*3600*24)/365)
+  //   }
+  // }
 
-  
+  ageCalculator(){
+    this.showAge =  this.Objservice.ageCalculator(this.age);
+
+  }
 }

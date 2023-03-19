@@ -1,0 +1,24 @@
+
+<div class="text-center container-fluid shadow-lg py-4" id="top">
+    <label> <input class="form-control" type="text" [(ngModel)]="searchByContent" placeholder="Type Here"></label>
+    <button class="btn btn-success mx-3" id="" (click)="getSearch()">Search</button>
+</div>
+
+<div class="container-fluid shadow-lg container py-4">
+    <table class="table table-stripped">
+        <thead class="table-secondary">
+            <tr>
+                <th>Title</th>
+                <th>Wordcount</th>
+                <th>Snippet</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="td" *ngFor="let data of wikiData">
+                <td>{{data.title}}</td>
+                <td>{{data.wordcount}}</td>
+                <td [innerHTML]="data.snippet"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

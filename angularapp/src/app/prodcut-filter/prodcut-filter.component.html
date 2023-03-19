@@ -1,0 +1,38 @@
+<p>prodcut-filter works!</p>
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <label for="serch"> Search by product name</label>
+        <input type="text" class="form-control" placeholder="Enter 
+        product Name" [(ngModel)]="namesearch">
+    </div>
+    <div class="col-md-8">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">
+                      Sno
+                    </th>
+                    <th scope="col">
+                        Name
+                      </th>
+                      <th scope="col">
+                        Price
+                      </th>
+                      <th scope="col">
+                        availibilty
+                      </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of productArr | search:namesearch">
+                    <th scope="row"> {{product.sno}} </th>
+                    <td>{{product.name}}</td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.availibilty}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

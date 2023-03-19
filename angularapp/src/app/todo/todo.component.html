@@ -1,0 +1,71 @@
+<p>todo works!</p>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+<div class="container">
+<div class="row">
+<div  class="col shadow py-3"><br>
+    <input class="form-control"  type="text" placeholder="Add course here" #title><br>
+    <input class="form-control " type="text" placeholder="Add name here" #names>
+    <button class="btn btn-primary my-3" (click)="createTodo(title, names)" >Create</button>
+</div>
+
+<div  class="col-8 shadow">
+    <table class="table center">
+        <thead>
+         <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>name</th>
+            <th>Actions</th>
+         </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let todo of todoList">
+                <td>{{todo.id}}</td>
+                <!-- <td>{{todo.title}}</td> -->
+                <td>
+                    <ng-container *ngIf="!todo.editMode">
+                        {{todo.title}}
+                    </ng-container>
+                    <ng-container *ngIf="todo.editMode">
+                        <input type="text" class="form-control" [(ngModel)]="todo.title" />
+                        <button type="button" class="btn btn-icon btn-link" (click)="saveChanges(todo)">
+                            <i class="fa fa-check"></i>
+                        </button>
+                        <button type="button" class="btn btn-icon btn-link text-danger" (click)="cancelChanges(todo)">
+                            <i class="fa fa-close"></i>
+                        </button>
+                    </ng-container>
+                </td>
+                <td>
+                    <ng-container *ngIf="!todo.editMode">
+                        {{todo.name}}
+                    </ng-container>
+                    <ng-container *ngIf="todo.editMode">
+                        <input type="text" class="form-control" [(ngModel)]="todo.name" />
+                        <button type="button" class="btn btn-icon btn-link" (click)="saveChanges(todo)">
+                        <i class="fa fa-check"></i>
+                        </button>
+                        <button type="button" class="btn btn-icon btn-link text-danger" (click)="cancelChanges(todo)">
+                            <i class="fa fa-close"></i>
+                        </button>
+                    </ng-container>
+                </td>
+                <td class="mx-3">
+                    <button type="button" class="btn btn-success" (click)="editTodo(todo)">
+                        <!-- <i class="bi bi-pencil"></i> -->Edit
+                    </button>
+                    <button type="button" class="btn btn-danger mx-3" (click)="deleteTodo(todo.id)">
+                        <!-- <i class="bi bi-trash"></i> -->Delete
+                    </button>
+                </td>
+                <!-- <td>
+                    <button type="button" class="btn btn-link" (click)="editTodo(todo)" >Edit</button>
+                    <button type="button" class="btn btn-link" (click)="deleteTodo(todo.id)" >Delete</button>
+                </td> -->
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>  
+</div>

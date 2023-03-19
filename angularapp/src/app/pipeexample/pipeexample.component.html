@@ -1,0 +1,25 @@
+<p>pipeexample works!</p>
+<p>pipeexample works!</p>
+
+<div>
+    Today's Date : {{todaysDate | date: 'fullDate' | lowercase}}
+</div>
+
+<div>
+    Price :
+    <p>{{price | currency:'INR'}}</p>
+    <p>{{price | currency:'USD'}}</p>
+    <p>{{price | currency:'EUR'}}</p>
+
+
+</div>
+
+<div>
+    <p>Json Pipe</p>
+    <p>{{employee | json}}</p>
+</div>
+
+<div>
+    <p>Custom Pipe Example</p>
+    <p>{{countLength | custom}}</p>
+</div>

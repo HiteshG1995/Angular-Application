@@ -1,7 +1,12 @@
 <div [ngStyle]="{'background-image':bgColor()}">
 
 </div> 
-<app-forms-page></app-forms-page>
+<!-- <app-aboutus></app-aboutus>
+<app-contactus></app-contactus> -->
+<!-- <app-pipeexample></app-pipeexample> -->
+<!-- <app-prodcut-filter></app-prodcut-filter> -->
+<!-- <app-http-client></app-http-client> -->
+<!-- <app-forms-page></app-forms-page> -->
 <!-- <app-reactiveform2></app-reactiveform2> -->
 <!-- <app-templateform-assignment></app-templateform-assignment> -->
 <!-- <app-regestration-form ></app-regestration-form> -->
@@ -18,8 +23,8 @@
 <!-- <app-ng-if-andng-for></app-ng-if-andng-for> -->
 <!-- <app-ng-class></app-ng-class>
 <app-ng-style></app-ng-style>
-<app-ngswitch></app-ngswitch> -->
-<!-- <app-ngfor></app-ngfor>
+<app-ngswitch></app-ngswitch>
+<app-ngfor></app-ngfor>
 <app-ng-if></app-ng-if>
 <h2><app-password></app-password></h2>
 <app-output (fromChildObject)="onParentPassObj($event)" (fromChild)="onParent($event)"></app-output>
@@ -56,3 +61,78 @@
 
 <img [src]="imageUrl" alt="">
 <router-outlet></router-outlet> -->
+
+
+<!-- <ng-container *ngFor="let product of products">
+  Product Name : <strong class="text-success">{{product.name}}</strong>
+  Product Id : <strong class="text-success">{{product.id}}</strong>
+  
+  </ng-container> -->
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div>
+        <app-comp1></app-comp1>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div>
+        <app-comp2></app-comp2>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div>
+        <app-comp3></app-comp3>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div>
+        <app-comp4></app-comp4>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<header class="d-flex justify-content-left py-4  navbar navbar-dark bg-dark">
+  <ul class="nav nav-pills mx-3">
+    <li class="nav-item"><a routerLinkActive="active" routerLink="/home" class="nav-link">Home</a></li>
+    <li class="nav-item"><a routerLinkActive="active" routerLink="/aboutus" class="nav-link">About Us</a></li>
+    <li class="nav-item"><a routerLinkActive="active" routerLink="/contactus" class="nav-link">Contact Us</a></li>
+    <li class="nav-item"><a routerLinkActive="active" routerLink="/product" class="nav-link">Product</a></li>
+    <li class="nav-item"><a routerLinkActive="active" routerLink="/post" class="nav-link">Posts</a></li>
+    <li class="nav-item"><a routerLinkActive="active" routerLink="/userdemo" class="nav-link">User</a></li>
+    <li class="nav-item"><a routerLinkActive="active" routerLink="/order" class="nav-link">Order</a></li>
+    <li class="nav-item"><a routerLinkActive="active" routerLink="/fashionClothes" class="nav-link">Fashion</a></li>
+    <li class="nav-item"><a routerLinkActive="active" routerLink="/customer" class="nav-link">Customer</a></li>
+    <li class="nav-item"><a routerLinkActive="active" routerLink="/admin" class="nav-link">Admin</a></li>
+    <li class="nav-item"><a routerLinkActive="active" routerLink="/todoJson" class="nav-link">Todo</a></li>
+
+    <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
+  </ul>
+  <div class="text-end mx-3">
+      <button type="button"routerLinkActive="active" routerLink="/loginform" class="nav-link" class="btn btn-outline-light me-2">Login</button>
+      <button type="button" class="btn btn-warning">Sign-up</button>
+  </div>
+</header>
+<app-getapi-crud></app-getapi-crud>
+<!-- <header>
+  <nav>
+    <ul class="nav nav-tabs">
+      <li class="nav-items"> <a routerLinkActive="active" routerLink="/home" class="nav-link">Home</a></li>
+      <li class="nav-items"> <a routerLinkActive="active" routerLink="/aboutus" class="nav-link">About Us</a></li>
+      <li class="nav-items"> <a routerLinkActive="active" routerLink="/contactus" class="nav-link">Contact Us</a></li>
+      <li class="nav-items"> <a routerLinkActive="active" routerLink="/product" class="nav-link">Product</a></li>
+      <li class="nav-items"> <a routerLinkActive="active" routerLink="/post" class="nav-link">Posts</a></li>
+      <li class="nav-items"> <a routerLinkActive="active" routerLink="/userdemo" class="nav-link">User</a></li>
+      <li class="nav-items"> <a routerLinkActive="active" routerLink="/userdetails" class="nav-link"></a></li> 
+      <li class="nav-items"> <a routerLinkActive="active" routerLink="/order" class="nav-link">Order</a></li>
+      <li class="nav-items"> <a routerLinkActive="active" routerLink="/fashionClothes" class="nav-link">Fashion</a></li>
+      <li class="nav-items"> <a routerLinkActive="active" routerLink="/loginform" class="nav-link">Login</a></li>
+    </ul>
+  </nav>
+</header> -->
+
+<router-outlet></router-outlet>
+
+<!-- <app-men></app-men> -->
+<!-- <app-ngswitch></app-ngswitch> -->

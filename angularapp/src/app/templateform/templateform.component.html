@@ -47,7 +47,7 @@
             <button  mat-raised-button color="primary" (click)="login(loginForm)">Login</button>
         </form>
         <div class="form-val">
-             {{ loginForm.value | json}} -->
+             {{ loginForm.value | json}} 
         </div>
     </mat-card-content>
 </mat-card>
@@ -68,3 +68,7 @@
 <mat-option value="1">One</mat-option>
 <mat-option value="2">Two</mat-option>
 </mat-select>                
+
+<input type="date" [(ngModel)]="age">
+<button class="btn btn-primary" (click)="ageCalculator()">Calculate</button>
+<p *ngIf="age">{{showAge}}</p>

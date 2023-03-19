@@ -1,0 +1,22 @@
+#top:hover{
+    background-color: rgb(18, 90, 148);
+}
+
+#top{
+    background-color: cornflowerblue;
+}
+
+th{
+    background-color: rgb(61, 225, 96);
+}
+th:hover{
+    background-color: rgb(15, 96, 33);
+}
+
+td{
+    background-color: rgb(108, 241, 188);
+}
+
+td:hover{
+    background-color: rgb(29, 120, 84);
+}

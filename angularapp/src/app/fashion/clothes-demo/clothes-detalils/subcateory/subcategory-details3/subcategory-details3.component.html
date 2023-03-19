@@ -1,0 +1,27 @@
+<div class="mx-5 my-3" style="width: 400px;">
+    <a class="btn btn-success mx-2" routerLink="/fashionClothes">Go back to main menu</a>
+</div>
+
+<div><h1 class="text-center py-3">!! You just one step away !!</h1></div>
+<div *ngIf="orderPlacesAlert" class="alert alert-success text-center" role="alert"  >
+    <b >{{placeOrderMsg}}</b> 
+   </div>
+
+ <div class="footer my-5">
+     <div class="row">
+        <div class="card" >
+            <div  style="margin-left: 15px;">
+                <div  class="col-sm-12 links">
+                    <h4>{{finalDetails.desc}}</h4>
+                    <div>
+                        <img width="200px" height="200px" src="{{finalDetails.category4}}">
+                        <p>You get <del class="price"> {{finalDetails.price}}</del><ins>{{finalDetails.discount}} discount!!</ins></p>
+                        <ng-template #noImage> <p>Comming Soon</p> </ng-template>
+                    </div>
+                    <div>Your product types <b><i>{{finalDetails.details.detail4}}</i></b></div>
+                    <button class="btn btn-primary my-3" (click)="onOrderPlace()">Confirmed Order</button>
+                </div>  
+            </div>
+        </div>
+    </div> 
+ </div>

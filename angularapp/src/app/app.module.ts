@@ -18,7 +18,7 @@ import { NgStyleComponent } from './ng-style/ng-style.component';
 import { NgClassComponent } from './ng-class/ng-class.component';
 import { DirectivesComponent } from './directives/directives.component';
 import { DispNameComponent } from './disp-name/disp-name.component';
-import { CustomDirectiveDirective } from './custom-directive.directive';
+//import { CustomDirectiveDirective } from './custom-directive.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { TemplateformComponent } from './templateform/templateform.component';
@@ -50,6 +50,35 @@ import { RegestrationFormComponent } from './regestration-form/regestration-form
 import { TemplateformAssignmentComponent } from './templateform-assignment/templateform-assignment.component';
 import { Reactiveform2Component } from './reactiveform2/reactiveform2.component';
 import { FormsComponent } from './forms/forms.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MyserviceService } from './services/myservice.service';
+import { HttpClientComponent } from './http-client/http-client.component';
+import { PipeexampleComponent } from './pipeexample/pipeexample.component';
+// import { ProductFilterComponent } from './product-filter/product-filter.component';
+import { SearchPipe } from './search.pipe';
+import { ProdcutFilterComponent } from './prodcut-filter/prodcut-filter.component';
+import { TestPipePipe } from './test-pipe.pipe';
+import { CustomPipe } from './custom.pipe';
+import { Comp3Component } from './comp3/comp3.component';
+import { Comp4Component } from './comp4/comp4.component';
+import { Comp2Component } from './comp2/comp2.component';
+import { Comp1Component } from './comp1/comp1.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { HomeComponent } from './home/home.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { DemopostComponent } from './demopost/demopost.component';
+import { DemopostdetailsComponent } from './demopostdetails/demopostdetails.component';
+import { UsersdemoComponent } from './usersdemo/usersdemo.component';
+import { UserdemodetailsComponent } from './userdemodetails/userdemodetails.component';
+import { UserdetailsComponent } from './userdetails/userdetails.component';
+import { ProductModule } from './product.module';
+import { OrdermoduleModule } from './ordermodule/ordermodule.module';
+import { FashionModule } from './fashion/fashion.module';
+import { GetapiCRUDComponent } from './getapi-crud/getapi-crud.component';
+import { TodoComponent } from './todo/todo.component';
+// import { CustomerModule } from './customer/customer.module'; 
+// import { AdminModule } from './admin/admin.module';
 
 
 @NgModule({
@@ -68,14 +97,35 @@ import { FormsComponent } from './forms/forms.component';
     NgClassComponent,
     DirectivesComponent,
     DispNameComponent,
-    CustomDirectiveDirective,
+    //CustomDirectiveDirective,
     TemplateformComponent,
     NetBankingComponent,
     ReactiveformComponent,
     RegestrationFormComponent,
     TemplateformAssignmentComponent,
     Reactiveform2Component,
-    FormsComponent
+    FormsComponent,
+    HttpClientComponent,
+    PipeexampleComponent,
+    ProdcutFilterComponent,
+    SearchPipe,
+    TestPipePipe,
+    CustomPipe,
+    Comp1Component,
+    Comp2Component,
+    Comp3Component,
+    Comp4Component,
+    AboutusComponent,
+    ContactusComponent,
+    HomeComponent,
+    PagenotfoundComponent,
+    DemopostComponent,
+    DemopostdetailsComponent,
+    UsersdemoComponent,
+    UserdemodetailsComponent,
+    UserdetailsComponent,
+    GetapiCRUDComponent,
+    TodoComponent
   ],
   imports: [
     BrowserModule,
@@ -106,10 +156,21 @@ import { FormsComponent } from './forms/forms.component';
     MatStepperModule,
     MatProgressBarModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    ProductModule,
+    OrdermoduleModule,
+    FashionModule,
+    // CustomerModule,  //Lazy loading
+    // AdminModule      //Lazy loading
   ],
-  providers: [],
+  providers: [MyserviceService],
   bootstrap: [AppComponent]
   
 
 })
-export class AppModule { }
+export class AppModule {
+  constructor(){
+    console.log('AppModule called');
+    
+  }
+ }

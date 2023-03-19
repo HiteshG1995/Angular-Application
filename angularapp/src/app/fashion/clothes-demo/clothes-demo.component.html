@@ -1,0 +1,23 @@
+<h1 [ngStyle]="{'color':colorVal2, 'background-color': '#ddd'}">PoPoGini.in</h1>
+ <div class="footer">
+     <div class="row">
+        <div class="card" >
+            <div  style="margin-left: 15px;">
+                <div  class="col-sm-12 links" *ngFor="let cloth of counterClothes">
+                    <h4>{{cloth.desc}}</h4>
+                    <div>
+                        <img *ngIf="cloth.iconURL; else noImage" width="250px" [src]="cloth.iconURL">
+                        <p><del class="price">{{cloth.price}}</del><ins>{{cloth.discount}} only get hurry</ins></p>
+                        <ng-template #noImage> <p>Comming Soon</p> </ng-template>
+                    </div>
+                    <div [ngStyle]="{'color':colorVal, 'background-color': '#ddd'}" *ngIf="cloth.iconURL; else noImage">!!! Offer ending soon !!!</div>
+                    <button class="btn btn-primary my-3" [routerLink]="['/clothesdetails',cloth.category]">{{cloth.category}}</button>
+                </div>
+            </div>
+        </div>
+    </div> 
+ </div>
+
+<div class="col-md-6">
+    <router-outlet></router-outlet>
+  </div>

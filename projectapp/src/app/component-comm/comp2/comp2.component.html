@@ -1,0 +1,25 @@
+<div class="container mt-4">
+    <div class="box">
+        <table>
+            <thead>
+                <tr>
+                    <span>Username: </span><strong>{{userData.userName}}</strong><br>
+                    <input type="text" placeholder="Please enter username" #uname>
+                </tr>
+                <br>
+                <tr>
+                    <span>Company: </span><strong>{{userData.companyName}}</strong><br>
+                    <input type="text" placeholder="Company name" #comp>
+                </tr>
+                <br>
+                <tr>
+                    <span>Address: </span><strong>{{userData.Address}}</strong><br>
+                    <input type="text" placeholder="Address" #addrs> 
+                </tr>
+            </thead>
+        </table>
+
+    </div>
+    <button class="btn btn-primary mt-3" (click)="updateUserDetails(uname, comp, addrs)">Update</button>
+</div>
+ 

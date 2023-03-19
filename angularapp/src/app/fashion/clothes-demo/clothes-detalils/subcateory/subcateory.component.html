@@ -1,0 +1,76 @@
+<!-- <p>subcateory works!</p>
+{{subCatogeryDetails}} -->
+
+<div class="mx-5 my-3" style="width: 400px;">
+    <a class="btn btn-success mx-2" routerLink="/fashionClothes">Go back to List</a>
+    <a class="btn btn-danger" routerLink="/home">Go back to Category</a>
+</div>
+
+
+
+  
+<div class="row">
+    <div class="col-md-12">
+      <h1 appCustomDirective1 class="text-center">{{subCatogeryDetails.desc1}}</h1>
+    </div>
+    <div *ngIf="displayMsg" class="alert alert-success" role="alert" >
+      <b>{{successMsg}}</b> 
+     </div>
+      <div class="col-md-12">
+          <div class="card" height="300px">
+              <img class="card-img-top" src="{{subCatogeryDetails.category1}}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Card 1</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                 <a (click)="onSuccess()" class="btn btn-warning mx-2" >Add to cart</a>
+                <a  class="btn btn-success" [routerLink]="['/finalDet',subCatogeryDetails.id]">BUY</a>
+              </div>
+          </div>
+          <div class="card" >
+              <img class="card-img-top" src="{{subCatogeryDetails.category2}}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Card 2</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                 <a (click)="onSuccess()" class="btn btn-warning mx-2" >Add to cart</a>
+                <a class="btn btn-success" [routerLink]="['/finalDet1',subCatogeryDetails.id]">BUY</a>
+              </div>
+          </div>
+          <div class="card" >
+              <img class="card-img-top" src="{{subCatogeryDetails.category5}}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Card 3</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                 <a (click)="onSuccess()" class="btn btn-warning mx-2" >Add to cart</a>
+                 <a  class="btn btn-success" [routerLink]="['/finalDet2',subCatogeryDetails.id]">BUY</a>
+              </div>
+          </div>
+          <div class="card" >
+              <img class="card-img-top" src="{{subCatogeryDetails.category4}}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Card 4</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a (click)="onSuccess()" class="btn btn-warning mx-2" >Add to cart</a>
+                <a  class="btn btn-success" [routerLink]="['/finalDet3',subCatogeryDetails.id]">BUY</a>
+              </div>
+          </div>
+      </div>
+
+      
+
+      <div class="col-md-6">
+        <router-outlet></router-outlet>
+      </div>
+  </div>
+  
+
+  <!-- <div class="card-group">
+    <div class="card">
+      <img class="card-img-top" src="{{subCatogeryDetails.category4}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div> -->
